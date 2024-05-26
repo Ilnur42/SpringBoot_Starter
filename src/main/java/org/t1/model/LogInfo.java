@@ -123,4 +123,16 @@ public class LogInfo {
             return new LogInfo(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "Http запрос" + "\n" +
+                "Метод: " + method + "\n" +
+                "Url: " + url + "\n" +
+                "Request Headers: " + requestHeaders + "\n" +
+                "Response Headers: " + responseHeaders + "\n" +
+                "Статус: " + responseStatus + "\n" +
+                "Время выполнения: " + processingTime + " мс" + "\n";
+    }
 }

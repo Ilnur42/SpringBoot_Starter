@@ -31,28 +31,17 @@ public class LoggingService {
      * Логирование информации о HTTP запросе и ответе в зависимости от кода.
      */
     public void log(HttpServletRequest request, HttpServletResponse response, long processingTime) {
-        LogInfo logDetails = new LogInfo.Builder()
+        LogInfo logInfo = new LogInfo.Builder()
                 .withMethod(request.getMethod())
                 .withUrl(request.getRequestURI())
                 .withRequestHeaders(getHeadersInfo(request))
                 .withResponseHeaders(getHeadersInfo(response))
                 .withResponseStatus(response.getStatus())
                 .withProcessingTime(processingTime).build();
-
-        String logMessage = String.format(
-                "HTTP запрос - Метод: %s, URL: %s, Request Headers: %s, Response Headers: %s, Статус: %d, Время выполнения: %d ms",
-                logDetails.getMethod(),
-                logDetails.getUrl(),
-                logDetails.getRequestHeaders(),
-                logDetails.getResponseHeaders(),
-                logDetails.getResponseStatus(),
-                logDetails.getProcessingTime()
-        );
-
-        if (isErrorResponse(logDetails.getResponseStatus())) {
-            logger.error(logMessage);
+        if (isErrorResponse(logInfo.getResponseStatus())) {
+            logger.error(logInfo.toString());
         } else {
-            logger.info(logMessage);
+            logger.info(logInfo.toString());
         }
     }
 
