@@ -21,9 +21,11 @@
         <artifactId>http_logging_starter</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
+```
 
 4. Теперь любой HTTP запрос будет сопровождаться логированием в следующем формате:
 
+ ```
     HTTP запрос:
     Метод: GET
     URL: http://host:port/v3/api-docs
@@ -31,3 +33,4 @@
     Заголовки ответа: {Keep-Alive=timeout=60, Connection=keep-alive, Content-Length=12408, Date=Sun, 26 May 2024 14:09:48 GMT, Content-Type=application/json, ...}
     Статус: 200
     Время выполнения: 247 мс
+ ```
