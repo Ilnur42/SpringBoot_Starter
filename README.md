@@ -14,6 +14,8 @@
 
 3. В приложении, куда необходимо добавить стартер, в файл `pom.xml` добавьте следующую зависимость:
 
+
+```xml
     <dependency>
         <groupId>org.t1</groupId>
         <artifactId>http_logging_starter</artifactId>
